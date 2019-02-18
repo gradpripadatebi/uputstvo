@@ -82,3 +82,48 @@ Prva opcija je da se sa početnog ekrana klikne na **Create new file**. Dobija s
 Druga opcija je **Upload files**. Na ovaj način možete uploadovati nekoliko fajlova odjednom, a to mogu biti slike, pdf dokumenti, ili .md fajlovi koje ste pripremili lokalno u bilo kom tekst editoru.
 
 Da bi promene bile vidljive na sajtu, opet je potrebno kliknuti na **Commit changes**, kako i kod izmene postojećih fajlova.
+
+### Kreiranje linkova
+
+Uputstvo za kreiranje linkova u markdown sintaksi možete videti [ovde](https://www.markdownguide.org/basic-syntax#links).
+
+Ukoliko se kreira link ka nekoj eksternoj stranici na internetu, potrebno je staviti celu adresu, npr.
+
+> `https://www.markdownguide.org/basic-syntax#links`
+
+Linkovi ka drugim stranama sa ovoj sajta treba da sadrže samo putanju do strane. Ako se pravi link ka nekoj strani sa .md ekstenzijom, nije potrebno dodavati ekstenziju u adresi. Na primer, link ka stranici `druga.md` se kreira kao:
+
+> `[Druga strana](druga)`
+
+Linkovi ka ostalim fajlovima unutar sajta (npr. ka .pdf fajlu) treba da sadrže i ekstenziju.
+
+Isto pravilo važi i za ubacivanje slika: ako se slika nalazi negde na internetu, potrebno je upisati kompletnu adresu, a ako se ubacuje neka lokalna slika, samo ime slike.
+
+### _layouts/default.html fajl
+
+_layouts/default.html fajl služi za definisanje izgleda html strana kreiranih od .md fajlova. On trenutno izgleda ovako:
+
+
+    <!doctype html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ page.title }}</title>
+        <style>
+            th, td {
+                border: 1px solid gray;
+                padding: 5px;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        {{ content }}
+    </body>
+    </html>
+
+Trenutno je samo definisan default izgled za tabele. Tu se može dodati kod za Google Analytics, ukoliko je potrebno.
